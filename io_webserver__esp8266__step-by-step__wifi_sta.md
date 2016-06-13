@@ -67,8 +67,7 @@ void loop(void){
 
 void init_webserver() {
   server.on("/", []() {
-    digitalWrite(led, 1);
-    digitalWrite(led, 0);    
+    digitalWrite(led, !digitalRead(led));
     server.send(200, "text/plain", "hello from esp8266!");
   });
 
