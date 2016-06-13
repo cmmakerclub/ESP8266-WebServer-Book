@@ -52,14 +52,14 @@ void init_webserver() {
   server.on("/", []() {
     digitalWrite(led, !digitalRead(led));
     static String responseHTML = F(""
-      "<!doctype html>"
-      "<html>"
+      "<!doctype html>               "
+      "<html>                        "
       "  <head>                      "
       "    <title>Hello CMMC</title> "
-      "  </head>"
-      "  <body>"
-      "  <h1>HELLO WORLD</h1>"
-      "  </body>"
+      "  </head>                     "
+      "  <body>                      "
+      "  <h1>HELLO WORLD</h1>        "
+      "  </body>                     "
       "</html>");
       server.send (200, "text/html", responseHTML.c_str() );
   });
