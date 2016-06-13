@@ -78,7 +78,7 @@ void init_webserver() {
 
   server.on ( "/millis", []() {
     char buff[100];
-        String ms = String(millis());
+    String ms = String(millis());
     sprintf(buff, "{\"millis\": %s }", ms.c_str());
     server.send ( 200, "text/plain", buff );
   });  
