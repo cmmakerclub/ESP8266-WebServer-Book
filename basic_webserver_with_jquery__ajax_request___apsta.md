@@ -18,6 +18,7 @@
     var updateUI = function() {
       $("#temperature");
       $("#humidity");
+      $.getJSON("/data", updateUI);
     }
   </script>
 ```
