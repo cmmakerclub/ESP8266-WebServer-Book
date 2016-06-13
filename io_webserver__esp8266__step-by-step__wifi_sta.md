@@ -26,6 +26,7 @@ void handleRoot() {
 void init_webserver();
 
 void handleNotFound(){
+
   String message = "File Not Found\n\n";
   message += "URI: ";
   message += server.uri();
@@ -62,7 +63,11 @@ void loop(void){
 void init_webserver() {
   server.on("/", []() {
     digitalWrite(led, !digitalRead(led));
-    server.send(200, "text/plain", "hello from esp8266!");
+    
+    server.sendContent(
+      "<html><head></head><body>"
+      "<h1>HELLO WORLD!!</h1>"
+    );
   });
 
   server.on("/inline", [](){
