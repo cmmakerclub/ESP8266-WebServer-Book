@@ -48,9 +48,9 @@ void init_webserver() {
   server.on("/", []() {
     digitalWrite(led, !digitalRead(led));
     static String responseHTML = F(""
-      "<!doctype html>               "
-      "<html>                        "
-      "  <head>                      "
+      "<!doctype html>                             "
+      "<html>                                      "
+      "  <head>                                    "
       "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js\"></script>                                          "
       "    <title>Hello CMMC</title>               "
       "  </head>                                   "
