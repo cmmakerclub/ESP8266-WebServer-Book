@@ -1,8 +1,6 @@
 # การควบคุม I/O ผ่านทาง HTTP GET
 
 ```
-rd = "........";
-
 ESP8266WebServer server(80);
 
 const int led = 13;
