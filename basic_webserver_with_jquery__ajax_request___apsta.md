@@ -14,7 +14,11 @@
 
 ทีนี้ Ajax Request ผมจะทดสอบให้ทำ web page แสดงค่า อุณหภูมิ และความชื้นนะครับ ก็จะต้องมาเขียน ajax request กันหน่อย
 ```
-  <script type="text/javascript"></script>
+  <script type="text/javascript">
+    var updateUI = function() {
+      $("#temperature");
+    }
+  </script>
 ```
 
 ```
