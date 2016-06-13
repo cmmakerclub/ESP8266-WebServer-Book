@@ -10,6 +10,7 @@
 หน้าตาก็จะออกมาประมาณนี้ครับ (ผู้เขียนเลือกโหลดมาจาก google cdn นั่นเองครับ)
 `<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>`
 
+มาปรับแก้โค้ดแล้ว จะได้โค๊ดเพิ่มขึ้นมา 1 บรรทัด แบบนี้นะครับ
 
 ```
 #include <ESP8266WiFi.h>
