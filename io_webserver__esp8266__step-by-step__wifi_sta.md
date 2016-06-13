@@ -67,10 +67,10 @@ void loop(void){
 
 void init_webserver() {
   server.on("/", []() {
-  digitalWrite(led, 1);
-  server.send(200, "text/plain", "hello from esp8266!");
-  digitalWrite(led, 0);
-});
+    digitalWrite(led, 1);
+    digitalWrite(led, 0);    
+    server.send(200, "text/plain", "hello from esp8266!");
+  });
 
   server.on("/inline", [](){
     server.send(200, "text/plain", "this works as well");
