@@ -19,7 +19,6 @@ const int led = LED_BUILTIN;
 
 void init_webserver();
 
-
 void setup(void){
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
