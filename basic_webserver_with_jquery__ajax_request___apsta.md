@@ -27,6 +27,10 @@
   </script>
 ```
 
+
+{% gist id="https://gist.github.com/NAzT/b27abfcfce3a62fb1bfbe35f6dbf96b3" %}{% endgist %}
+ 
+ 
 ```
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
