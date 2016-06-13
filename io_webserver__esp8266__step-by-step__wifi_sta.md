@@ -55,6 +55,7 @@ void init_webserver() {
       "<!doctype html>"
       "<html>"
       "  <head>"
+      "    <title>Hello CMMC</title>
       "  </head>"
       "  <body>"
       "  <h1>HELLO WORLD</h1>"
