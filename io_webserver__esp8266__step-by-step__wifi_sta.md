@@ -51,10 +51,21 @@ void loop(void){
 void init_webserver() {
   server.on("/", []() {
     digitalWrite(led, !digitalRead(led));
-    server.sendContent(
-      "<html><head></head><body>"
-      "<h1>HELLO WORLD!!</h1>"
-    );
+    static String responseHTML = F(""
+      "<!doctype html>"
+      "<html>"
+      "  <head>"
+      "   <meta http-equiv=\"refresh\" content=\"0; url=/index.html\"> "
+      ""
+      "<script type=\"text/javascript\">"
+      "                                 "
+      "</script>"
+      "  </head>"
+      "  <body>"
+      "  </body>"
+      "</html>");
+      server.send (200, "text/html", responseHTML.c_str() );
+
   });
 
   server.on("/inline", [](){
