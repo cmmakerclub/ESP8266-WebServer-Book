@@ -3,33 +3,75 @@
 บทความนี้จะพูดถึงการทำให้ ESP8266 เป็น WebServer ที่แสดงผล html(webpage) และสาธิตด้วยการควบคุม I/O (input/output) 
 เอาล่ะครับ งั้นเริ่มกันเลยเนาะ.. ไปกันแบบ step-by-step นะครับ
 
+#include <ESP8266WiFi.h>
+#include <WiFiClient.h>
+#include <ESP8266WebServer.h>
+#include <ESP8266mDNS.h>
 
-2. หลังจากที่เรา initialze พวก IO ทั้งหลายแล้ว เปิด Serial port แล้ว เราก็มาเตรียม config  url handler บนตัว web server กันครับ code จะเป็นแบบนี้นะ
-```
-  void init_webserver() {
-    server.on ( "/", []() {
-      bool state = digitalRead(LED_BUILTIN);
-      digitalWrite(LED_BUILTIN, !state);
-      char buff[100];
-      String ms = String(millis());
-      sprintf(buff, "{\"millis\": %s }", ms.c_str());
-      server.send ( 200, "text/plain", buff );
-    });
+const char* ssid = "........";
+const char* password = "........";
 
-    server.on ( "/millis", []() {
-      char buff[100];
-      String ms = String(millis());
-      sprintf(buff, "{\"millis\": %s }", ms.c_str());
-      server.send ( 200, "text/plain", buff );
-    });
+ESP8266WebServer server(80);
+
+const int led = 13;
+
+void handleRoot() {
+  digitalWrite(led, 1);
+  server.send(200, "text/plain", "hello from esp8266!");
+  digitalWrite(led, 0);
+}
+
+void handleNotFound(){
+  digitalWrite(led, 1);
+  String message = "File Not Found\n\n";
+  message += "URI: ";
+  message += server.uri();
+  message += "\nMethod: ";
+  message += (server.method() == HTTP_GET)?"GET":"POST";
+  message += "\nArguments: ";
+  message += server.args();
+  message += "\n";
+  for (uint8_t i=0; i<server.args(); i++){
+    message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
-```
-ซึ่งโค้ดข้างบนจะ handle ได้ 2 url คือ
+  server.send(404, "text/plain", message);
+  digitalWrite(led, 0);
+}
 
+void setup(void){
+  pinMode(led, OUTPUT);
+  digitalWrite(led, 0);
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  Serial.println("");
 
-พาธ`/millis` และ `/` (root path)
-ซึ่งทั้ง 2 path ที่กล่าวถึงข้างบนนั้น ทำหน้าที่คล้ายๆกันคือ และ string หน้าตาแบบ JSON และ http response (200 OK)
+  // Wait for connection
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.print("Connected to ");
+  Serial.println(ssid);
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
 
-root path “/” นั้นพิเศษขึ้นมาหน่อยคือ จะมี code ทำหน้าที่ Toggle LED_BUILTIN อยู่ด้วยครับ ก็แค่ digitalWrite ธรรมดานั่นแหละ
+  if (MDNS.begin("esp8266")) {
+    Serial.println("MDNS responder started");
+  }
 
+  server.on("/", handleRoot);
 
+  server.on("/inline", [](){
+    server.send(200, "text/plain", "this works as well");
+  });
+
+  server.onNotFound(handleNotFound);
+
+  server.begin();
+  Serial.println("HTTP server started");
+}
+
+void loop(void){
+  server.handleClient();
+}
