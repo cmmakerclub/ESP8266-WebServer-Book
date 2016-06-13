@@ -5,13 +5,7 @@ ESP8266WebServer server(80);
 
 const int led = 13;
 
-void handleRoot() {
-  digitalWrite(led, 1);
-  server.send(200, "text/plain", "hello from esp8266!");
-  digitalWrite(led, 0);
-}
-
-void handleNotFound(){
+void handleRoot(){
   digitalWrite(led, 1);
   String message = "File Not Found\n\n";
   message += "URI: ";
