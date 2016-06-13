@@ -57,8 +57,8 @@ void init_webserver() {
       "  <body>                                    "
       "      <h1>HELLO WORLD                       " 
                 <span id=\"millis\"></span>        "
-      "       </h1>                  "
-      "  </body>                     "
+      "       </h1>                                "
+      "  </body>                                   "
       "</html>");
       server.send (200, "text/html", responseHTML.c_str() );
   });
