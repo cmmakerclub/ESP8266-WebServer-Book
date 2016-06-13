@@ -63,11 +63,12 @@ void loop(void){
 void init_webserver() {
   server.on("/", []() {
     digitalWrite(led, !digitalRead(led));
-    
     server.sendContent(
       "<html><head></head><body>"
       "<h1>HELLO WORLD!!</h1>"
     );
+    
+    server.client().stop(); // Stop is needed because we sent no content length    
   });
 
   server.on("/inline", [](){
