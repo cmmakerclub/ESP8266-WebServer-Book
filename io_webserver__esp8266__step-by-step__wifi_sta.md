@@ -6,20 +6,22 @@
 
 1. blah blah
 2. หลังจากที่เรา initialze พวก IO ทั้งหลายแล้ว เปิด Serial port แล้ว เราก็มาเตรียม config  url handler บนตัว web server กันครับ code จะเป็นแบบนี้นะ
-    void init_webserver() {
-      server.on ( "/", []() {
-        bool state = digitalRead(LED_BUILTIN);
-        digitalWrite(LED_BUILTIN, !state);
-        char buff[100];
-        String ms = String(millis());
-        sprintf(buff, "{\"millis\": %s }", ms.c_str());
-        server.send ( 200, "text/plain", buff );
-      });
+```
+  void init_webserver() {
+    server.on ( "/", []() {
+      bool state = digitalRead(LED_BUILTIN);
+      digitalWrite(LED_BUILTIN, !state);
+      char buff[100];
+      String ms = String(millis());
+      sprintf(buff, "{\"millis\": %s }", ms.c_str());
+      server.send ( 200, "text/plain", buff );
+    });
 
-      server.on ( "/millis", []() {
-        char buff[100];
-        String ms = String(millis());
-        sprintf(buff, "{\"millis\": %s }", ms.c_str());
-        server.send ( 200, "text/plain", buff );
-      });
-    }
+    server.on ( "/millis", []() {
+      char buff[100];
+      String ms = String(millis());
+      sprintf(buff, "{\"millis\": %s }", ms.c_str());
+      server.send ( 200, "text/plain", buff );
+    });
+  }
+```
