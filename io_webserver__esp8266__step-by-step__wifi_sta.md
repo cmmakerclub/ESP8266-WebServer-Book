@@ -66,6 +66,15 @@ void loop(void){
 }
 
 void init_webserver() {
+  server.on("/", handleRoot);
 
+  server.on("/inline", [](){
+    server.send(200, "text/plain", "this works as well");
+  });
+
+  server.onNotFound(handleNotFound);
+
+  server.begin();
+  Serial.println("HTTP server started");
 }
 ```
