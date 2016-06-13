@@ -74,4 +74,7 @@ void setup(void){
 void loop(void){
   server.handleClient();
 }
+
+void init_webserver() {
+
 ```
