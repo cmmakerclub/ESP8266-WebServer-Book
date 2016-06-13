@@ -55,12 +55,7 @@ void setup(void){
   }
  
   Serial.printf("Connected to %s, IP address: ", ssid);
-  Serial.println("");
-  Serial.print("Connected to ");
-  Serial.println(ssid);
-  Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
-
 
   server.on("/", handleRoot);
 
