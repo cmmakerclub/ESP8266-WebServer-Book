@@ -65,7 +65,6 @@ void init_webserver() {
       "  </body>"
       "</html>");
       server.send (200, "text/html", responseHTML.c_str() );
-
   });
 
   server.on("/inline", [](){
