@@ -48,12 +48,9 @@ void setup(void){
   digitalWrite(led, 0);
   Serial.begin(115200);
   WiFi.begin(ssid, password);
-  Serial.println("");
-
-  // Wait for connection
   while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf("Connecting to %s:%s\r\n", ssid, password);
     delay(500);
-    Serial.println(".");
   }
  
   Serial.printf("Connected to %s, IP address: ", ssid);
@@ -75,7 +72,7 @@ void init_webserver() {
     server.send(200, "text/plain", "this works as well");
   });
 
-  server.on ( "/millis", []() {
+  server.on( "/millis", []() {
     char buff[100];
     sprintf(buff, "{\"millis\": %lu }", millis());
     server.send ( 200, "text/plain", buff );
