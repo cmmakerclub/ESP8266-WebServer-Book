@@ -6,7 +6,7 @@
 
 วิธีการจะง่ายมากครับ เราสามารถใช้ code เดิมได้เลย เพียงแต่เพิ่ม
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+`<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>`
 
 
 
