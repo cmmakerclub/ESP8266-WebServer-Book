@@ -58,17 +58,7 @@ void setup(void){
  
   Serial.printf("Connected to %s, IP address: ", ssid);
   Serial.println(WiFi.localIP());
-
-  server.on("/", handleRoot);
-
-  server.on("/inline", [](){
-    server.send(200, "text/plain", "this works as well");
-  });
-
-  server.onNotFound(handleNotFound);
-
-  server.begin();
-  Serial.println("HTTP server started");
+  init_webserver();
 }
 
 void loop(void){
