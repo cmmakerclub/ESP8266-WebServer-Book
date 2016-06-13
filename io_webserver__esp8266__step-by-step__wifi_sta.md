@@ -27,8 +27,9 @@
 ```
 ซึ่งโค้ดข้างบนจะ handle ได้ 2 url คือ
 
-/millis
-/ (root path)
+
+`/millis`
+`/` (root path)
 ซึ่งทั้ง 2 path ที่กล่าวถึงข้างบนนั้น ทำหน้าที่คล้ายๆกันคือ และ string หน้าตาแบบ JSON และ http response (200 OK)
 
 root path “/” นั้นพิเศษขึ้นมาหน่อยคือ จะมี code ทำหน้าที่ Toggle LED_BUILTIN อยู่ด้วยครับ ก็แค่ digitalWrite ธรรมดานั่นแหละ
