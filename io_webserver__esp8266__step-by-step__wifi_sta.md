@@ -9,7 +9,7 @@
 
 1. Initial I/O ต่างๆ ซึ่งในที่นี้คือ led Pin
 2. เชื่อมต่อ ESP8266 เข้ากับ WiFi Access Point (เป็น WIFI_STA mode และสั่งด้วยคำสั่ง WiFi.begin)
-3. สั่ง Initial WebServer 
+3. ตั้งค่า(Config) และสั่ง initial WebServer บน ESP8266
 4. handle WebServer Request ใน loop()
 
 โค้ดหน้าตาเป็นแบบนี้ครับ
