@@ -54,7 +54,7 @@ void init_webserver() {
     static String responseHTML = F(""
       "<!doctype html>"
       "<html>"
-      "  <head>"
+      "  <head>                      "
       "    <title>Hello CMMC</title> "
       "  </head>"
       "  <body>"
