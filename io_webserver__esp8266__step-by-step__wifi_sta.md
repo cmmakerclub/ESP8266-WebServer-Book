@@ -1,6 +1,6 @@
 # WebServer ควบคุม I/O ในโหมด WIFI_STA
 
-บทความนี้จะพูดถึงการทำให้ ESP8266 เป็น WebServer ที่แสดงผล html(webpage) และการควบคุม
+บทความนี้จะพูดถึงการทำให้ ESP8266 เป็น WebServer ที่แสดงผล html(webpage) และการควบคุม I/O (input-output)
 เอาล่ะครับ งั้นเริ่มกันเลยเนาะ.. ไปกันแบบ step-by-step นะ
 
 1. blah blah
