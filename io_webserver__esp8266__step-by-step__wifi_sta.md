@@ -19,10 +19,10 @@
 
 const char* ssid = "........";
 const char* password = "........";
+const int led = LED_BUILTIN;
 
 ESP8266WebServer server(80);
 
-const int led = LED_BUILTIN;
 
 
 void init_webserver();
