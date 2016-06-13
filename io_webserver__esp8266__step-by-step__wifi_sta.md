@@ -76,6 +76,13 @@ void init_webserver() {
     server.send(200, "text/plain", "this works as well");
   });
 
+  server.on ( "/millis", []() {
+    char buff[100];
+        String ms = String(millis());
+    sprintf(buff, "{\"millis\": %s }", ms.c_str());
+    server.send ( 200, "text/plain", buff );
+  });  
+
   server.onNotFound(handleNotFound);
 
   server.begin();
