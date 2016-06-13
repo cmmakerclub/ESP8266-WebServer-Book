@@ -24,6 +24,8 @@ void handleRoot() {
   digitalWrite(led, 0);
 }
 
+void init_webserver();
+
 void handleNotFound(){
   digitalWrite(led, 1);
   String message = "File Not Found\n\n";
