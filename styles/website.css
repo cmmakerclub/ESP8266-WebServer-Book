@@ -1,1 +1,9 @@
 /* CSS for website */
+
+
+.markdown-section .gist .gist-data table tr {
+    /*background-color: #fff;*/
+    border: 0;
+}
+
+
