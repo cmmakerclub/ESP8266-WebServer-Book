@@ -65,7 +65,7 @@ void loop(void){
   server.handleClient();
 }
 
-void init_webserver() {
+  void init_webserver() {
   server.on("/", handleRoot);
 
   server.on("/inline", [](){
