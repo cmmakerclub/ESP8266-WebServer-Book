@@ -12,6 +12,7 @@
 3. สั่ง Initial WebServer 
 4. handle WebServer Request ใน loop()
 
+โค้ดหน้าตาเป็นแบบนี้ครับ
 
 ```
 #include <ESP8266WiFi.h>
