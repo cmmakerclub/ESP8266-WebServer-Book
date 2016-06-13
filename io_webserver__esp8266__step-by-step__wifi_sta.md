@@ -7,7 +7,7 @@
 
 อธิบาย step ง่ายๆ ดังนี้
 
-1. เชื่อมต่อ ESP8266 เข้ากับ WiFi Access Point (เป็น WIFI_STA mode และสั่งด้วยคำาั่ง WiFi.begin)
+1. เชื่อมต่อ ESP8266 เข้ากับ WiFi Access Point (เป็น WIFI_STA mode และสั่งด้วยคำสั่ง WiFi.begin)
 
 
 ```
