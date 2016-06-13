@@ -3,6 +3,7 @@
 บทความนี้จะพูดถึงการทำให้ ESP8266 เป็น WebServer ที่แสดงผล html(webpage) และสาธิตด้วยการควบคุม I/O (input/output) 
 เอาล่ะครับ งั้นเริ่มกันเลยเนาะ.. ไปกันแบบ step-by-step นะครับ
 
+```
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
@@ -75,3 +76,4 @@ void setup(void){
 void loop(void){
   server.handleClient();
 }
+```
