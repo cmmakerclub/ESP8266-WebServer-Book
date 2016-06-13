@@ -9,14 +9,13 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
-#include <ESP8266mDNS.h>
 
 const char* ssid = "........";
 const char* password = "........";
 
 ESP8266WebServer server(80);
 
-const int led = 13;
+const int led = LED_BUILTIN;
 
 void handleRoot() {
   digitalWrite(led, 1);
