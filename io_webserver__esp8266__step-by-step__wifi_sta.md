@@ -55,8 +55,6 @@ void init_webserver() {
       "<html><head></head><body>"
       "<h1>HELLO WORLD!!</h1>"
     );
-    
-    server.client().stop(); // Stop is needed because we sent no content length    
   });
 
   server.on("/inline", [](){
