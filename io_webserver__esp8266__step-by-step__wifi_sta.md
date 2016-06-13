@@ -16,17 +16,9 @@ ESP8266WebServer server(80);
 
 const int led = LED_BUILTINat;
 
-void handleRoot() {
-  digitalWrite(led, 1);
-  server.send(200, "text/plain", "hello from esp8266!");
-  digitalWrite(led, 0);
-}
 
 void init_webserver();
 
-void handleNotFound(){
-
-}
 
 void setup(void){
   pinMode(led, OUTPUT);
