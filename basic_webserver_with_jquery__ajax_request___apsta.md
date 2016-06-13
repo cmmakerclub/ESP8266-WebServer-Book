@@ -6,7 +6,7 @@
 
 วิธีการจะง่ายมากครับ เราสามารถใช้ code เดิมได้เลย เพียงแต่เพิ่ม
 
-แท็ก `<script>` เข้าไปเท่านั้น
+แท็ก `<script>` ที่ทำหน้าที่โหลด jquery เข้ามาใน browser เท่านั้น! 
 `<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>`
 
 
