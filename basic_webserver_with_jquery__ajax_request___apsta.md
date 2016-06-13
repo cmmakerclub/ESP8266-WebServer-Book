@@ -56,7 +56,7 @@ void init_webserver() {
       "  </head>                     "
       "  <body>                      "
       "      <h1>HELLO WORLD         " 
-                <span></span>        "
+                <span id=\"millis\"></span>        "
       "       </h1>                  "
       "  </body>                     "
       "</html>");
