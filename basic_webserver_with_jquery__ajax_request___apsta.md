@@ -12,6 +12,8 @@
 
 มาปรับแก้โค้ดแล้ว จะได้โค๊ดเพิ่มขึ้นมา 1 บรรทัด หลังจากนั้นเราสามารถ บรรเลงบทเพลงทำนอง jQuery ได้เลยครับ!!
 
+ทีนี้ Ajax Request ผมจะทดสอบให้ทำ web page แสดงค่า อุณหภูมิ และความชื้นนะครับ
+
 ```
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
@@ -84,5 +86,3 @@ void init_webserver() {
   Serial.println("HTTP server started");
 }
 ```
-
-ทีนี้ Ajax Request 
