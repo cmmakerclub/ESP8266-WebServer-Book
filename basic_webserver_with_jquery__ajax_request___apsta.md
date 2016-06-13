@@ -16,8 +16,8 @@
 ```
   <script type="text/javascript">
     var updateUI = function(res) {
-      $("#temperature");
-      $("#humidity");
+      $("#temperature").text("temp");
+      $("#humidity").text("humid");
     }
     var getData = function() {
       $.getJSON("/data", updateUI);
