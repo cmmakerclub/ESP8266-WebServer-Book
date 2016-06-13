@@ -18,8 +18,12 @@
     var updateUI = function(res) {
       $("#temperature");
       $("#humidity");
-      $.getJSON("/data", updateUI);
     }
+    var getData = function() {
+    
+    }
+    
+    setInterval(1000, getData);
   </script>
 ```
 
