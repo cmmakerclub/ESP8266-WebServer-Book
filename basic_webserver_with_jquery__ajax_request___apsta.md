@@ -20,7 +20,7 @@
       $("#humidity");
     }
     var getData = function() {
-    
+      $.getJSON("/data", updateUI);
     }
     
     setInterval(1000, getData);
