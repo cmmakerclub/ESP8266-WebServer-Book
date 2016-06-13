@@ -17,7 +17,7 @@
 - Restart Arduino IDE
 - เปิดหรือสร้าง Arduino Sketch ขึ้นมา และเข้าไปโปรเจ็ค (เลือกเมนู Sketch > Show Sketch Folder) 
 
-![show-sketch-folder](show-sketch.jpg)
+![show-sketch-folder](images/show-sketch.jpg)
 
 - สร้างโฟล์เดอร์ `data` ขึ้นมา และเอาไฟล์ที่ต้องการอัพโหลดเข้าไปใน ESPresso Lite วางไว้ใน `data`
 
@@ -40,7 +40,7 @@
   - โค้ดตัวอย่างจะอ่านไฟล์ใน SPIFFS จะเจอ index.html ที่อัพโหลดลงไป
   - แสดงสถานะการเชื่อมต่อของเราเข้ามาใน Serial port
 
-![](serialdebug.jpg)
+![](images/serialdebug.jpg)
 
 - ลองเข้า IP : 192.168.4.1 ผลที่ได้ดังภาพด้านล่าง
 
