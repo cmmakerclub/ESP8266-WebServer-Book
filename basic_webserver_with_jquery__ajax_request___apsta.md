@@ -15,7 +15,7 @@
 
 {% gist id="https://gist.github.com/NAzT/b27abfcfce3a62fb1bfbe35f6dbf96b3" %}{% endgist %}
  
-จากตัวอย่างข้างบนรอบนี้ เราจะต้องมาทำ Ajax Request กันครับ ผมจะทดสอบให้ทำ web page แสดงค่า อุณหภูมิ และความชื้นนะครับ ก็จะต้องมาเขียน ajax request กันหน่อย
+จากตัวอย่างข้างบนรอบนี้ เราจะต้องมาทำ Ajax Request กันครับ ผมจะทดสอบโดยการทำ web page แสดงค่า อุณหภูมิ และความชื้นนะครับ.. เอาล่ะเริ่มกันได้เลย
 ```
   <script type="text/javascript">
     var updateUI = function(res) {
