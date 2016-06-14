@@ -108,7 +108,7 @@ void handleDebug()  {
       else {
         digitalWrite(led, HIGH);
       }
-//  }
+  }
 
    
   
