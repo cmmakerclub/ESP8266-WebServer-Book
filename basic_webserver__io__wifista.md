@@ -19,15 +19,16 @@
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 
-const char* ssid = "........";
-const char* password = "........";
+const char* ssid = "ESPERT-002";
+const char* password = "espertap";
 const int led = LED_BUILTIN;
 
 ESP8266WebServer server(80);
 
 void init_webserver();
+void handleDebug();
 
-void setup(void){
+void setup(void) {
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
   Serial.begin(115200);
@@ -36,13 +37,13 @@ void setup(void){
     Serial.printf("Connecting to %s:%s\r\n", ssid, password);
     delay(500);
   }
- 
+
   Serial.printf("Connected to %s, IP address: ", ssid);
   Serial.println(WiFi.localIP());
   init_webserver();
 }
 
-void loop(void){
+void loop(void) {
   server.handleClient();
 }
 
@@ -50,27 +51,30 @@ void init_webserver() {
   server.on("/", []() {
     digitalWrite(led, !digitalRead(led));
     static String responseHTML = F(""
-      "<!doctype html>               "
-      "<html>                        "
-      "  <head>                      "
-      "    <title>Hello CMMC</title> "
-      "  </head>                     "
-      "  <body>                      "
-      "      <h1>HELLO WORLD</h1>    "
-      "  </body>                     "
-      "</html>");
-      server.send (200, "text/html", responseHTML.c_str() );
+     "<!doctype html>               "
+     "<html>                        "
+     "  <head>                      "
+     "    <title>Hello CMMC</title> "
+     "  </head>                     "
+     "  <body>                      "
+     "      <h1>HELLO WORLD</h1>    "
+     "  </body>                     "
+     "</html>");
+    server.send (200, "text/html", responseHTML.c_str() );
   });
 
-  server.on("/inline", [](){
+  server.on("/inline", []() {
     server.send(200, "text/plain", "this works as well");
   });
 
-  server.on( "/millis", []() {
+  server.on( "/millis", HTTP_GET, []() {
     char buff[100];
     sprintf(buff, "{\"millis\": %lu }", millis());
-    server.send ( 200, "text/plain", buff );
-  });  
+    server.send (200, "text/plain", buff );
+  });
+
+  server.on("/debug", HTTP_GET, handleDebug);
+
 
   server.onNotFound([]() {
     String message = "File Not Found\n\n";
@@ -81,5 +85,34 @@ void init_webserver() {
 
   server.begin();
   Serial.println("HTTP server started");
+}
+
+void handleDebug()  {
+  String message = "";
+  message += "URI: ";
+  message += server.uri();
+  message += "\nMethod: ";
+  message += (server.method() == HTTP_GET) ? "GET" : "POST";
+  message += "\nArguments: ";
+  message += server.args(); 
+  message += "\n";
+  for (uint8_t i = 0; i < server.args(); i++) {
+    message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
+  }
+
+  if (server.hasArg("status")) {
+  
+//     Serial.printf("hasArg(\"test\") value = %s \r\n", server.arg("test").c_str());
+      if (server.arg("status") == "0") {
+        digitalWrite(led, LOW);
+      }
+      else {
+        digitalWrite(led, HIGH);
+      }
+//  }
+
+   
+  
+  server.send(404, "text/plain", message);
 }
 ```
