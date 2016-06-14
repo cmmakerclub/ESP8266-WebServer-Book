@@ -12,6 +12,9 @@
 
 มาปรับแก้โค้ดแล้ว จะได้โค๊ดเพิ่มขึ้นมา 1 บรรทัด หลังจากนั้นเราสามารถ บรรเลงบทเพลงทำนอง jQuery ได้เลยครับ!!
 
+
+{% gist id="https://gist.github.com/NAzT/b27abfcfce3a62fb1bfbe35f6dbf96b3" %}{% endgist %}
+ 
 ทีนี้ Ajax Request ผมจะทดสอบให้ทำ web page แสดงค่า อุณหภูมิ และความชื้นนะครับ ก็จะต้องมาเขียน ajax request กันหน่อย
 ```
   <script type="text/javascript">
@@ -26,7 +29,3 @@
     setInterval(1000, getData);
   </script>
 ```
-
-
-{% gist id="https://gist.github.com/NAzT/b27abfcfce3a62fb1bfbe35f6dbf96b3" %}{% endgist %}
- 
