@@ -99,10 +99,9 @@ void handleDebug()  {
   for (uint8_t i = 0; i < server.args(); i++) {
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
-
-  if (server.hasArg("status")) {
   
-//     Serial.printf("hasArg(\"test\") value = %s \r\n", server.arg("test").c_str());
+  Serial.printf("hasArg(\"test\") value = %s \r\n", server.arg("test").c_str());
+  if (server.hasArg("status")) {
       if (server.arg("status") == "0") {
         digitalWrite(led, LOW);
       }
