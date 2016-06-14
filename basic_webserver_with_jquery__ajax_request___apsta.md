@@ -10,7 +10,27 @@
 หน้าตาก็จะออกมาประมาณนี้ครับ (ผู้เขียนเลือกโหลดมาจาก google cdn นั่นเองครับ)
 `<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>`
 
-มาปรับแก้โค้ดแล้ว จะได้โค๊ดเพิ่มขึ้นมา 1 บรรทัด หลังจากนั้นเราสามารถ บรรเลงบทเพลงทำนอง jQuery ได้เลยครับ!!
+มาปรับแก้โค้ดแล้ว จะได้โค๊ดเพิ่มขึ้นมา 1 บรรทัด หลังจากนั้นเราสามารถ บรรเลงบทเพลงทำนอง jQuery ได้เลยครับ แบบนี้นะ..
+
+```
+  server.on("/", []() {
+    digitalWrite(led, !digitalRead(led));
+    static String responseHTML = F(""
+      "<!doctype html>                             "
+      "<html>                                      "
+      "  <head>                                    "
+      "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js\"></script>                                          "
+      "    <title>Hello CMMC</title>               "
+      "  </head>                                   "
+      "  <body>                                    "
+      "      <h1>HELLO WORLD                       " 
+                <span id=\"millis\"></span>        "
+      "       </h1>                                "
+      "  </body>                                   "
+      "</html>");
+      server.send (200, "text/html", responseHTML.c_str() );
+  });
+```
 
 
 {% gist id="https://gist.github.com/NAzT/b27abfcfce3a62fb1bfbe35f6dbf96b3" %}{% endgist %}
