@@ -1,4 +1,4 @@
-# การควบคุม I/O ผ่านทาง HTTP GET
+# การควบคุม I/O ด้วย HTTP GET
 
 ```
 ESP8266WebServer server(80);
