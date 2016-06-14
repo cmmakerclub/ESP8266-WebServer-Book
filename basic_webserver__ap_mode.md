@@ -7,4 +7,14 @@
 
 
 ESP8266WebServer _server(80);
+
+void setup() {
+  WiFi.disconnect();
+  WiFi.mode(WIFI_AP_STA);
+  WiFi.softAP(getId().c_str());
+}
+
+void loop() {
+  _server.handleClient();
+}
 ```
